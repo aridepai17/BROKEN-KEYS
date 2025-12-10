@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Vercel-inspired black/white design system */
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 0 0% 0%;
+
+        --card: 0 0% 98%;
+        --card-foreground: 0 0% 0%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 0%;
+
+        --primary: 0 0% 0%;
+        --primary-foreground: 0 0% 100%;
+
+        --secondary: 0 0% 96%;
+        --secondary-foreground: 0 0% 0%;
+
+        --muted: 0 0% 96%;
+        --muted-foreground: 0 0% 45%;
+
+        --accent: 0 0% 96%;
+        --accent-foreground: 0 0% 0%;
+
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 100%;
+
+        --success: 142 76% 36%;
+        --success-foreground: 0 0% 100%;
+
+        --border: 0 0% 90%;
+        --input: 0 0% 90%;
+        --ring: 0 0% 0%;
+
+        --radius: 0.5rem;
+
+        --char-correct: 142 76% 36%;
+        --char-incorrect: 0 84% 60%;
+        --char-current: 212 100% 50%;
+        --char-upcoming: 0 0% 60%;
+
+        --sidebar-background: 0 0% 98%;
+        --sidebar-foreground: 0 0% 0%;
+        --sidebar-primary: 0 0% 0%;
+        --sidebar-primary-foreground: 0 0% 100%;
+        --sidebar-accent: 0 0% 96%;
+        --sidebar-accent-foreground: 0 0% 0%;
+        --sidebar-border: 0 0% 90%;
+        --sidebar-ring: 0 0% 0%;
+
+        --chart-1: 0 0% 20%;
+        --chart-2: 0 0% 40%;
+        --chart-3: 0 0% 60%;
+        --chart-4: 0 0% 80%;
+        --chart-5: 0 0% 90%;
+
+        --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+        --font-mono: 'Geist Mono', ui-monospace, monospace;
+    }
+
+    .dark {
+        --background: 0 0% 0%;
+        --foreground: 0 0% 100%;
+
+        --card: 0 0% 7%;
+        --card-foreground: 0 0% 100%;
+
+        --popover: 0 0% 7%;
+        --popover-foreground: 0 0% 100%;
+
+        --primary: 0 0% 100%;
+        --primary-foreground: 0 0% 0%;
+
+        --secondary: 0 0% 15%;
+        --secondary-foreground: 0 0% 100%;
+
+        --muted: 0 0% 15%;
+        --muted-foreground: 0 0% 55%;
+
+        --accent: 0 0% 15%;
+        --accent-foreground: 0 0% 100%;
+
+        --destructive: 0 62% 50%;
+        --destructive-foreground: 0 0% 100%;
+
+        --success: 142 76% 45%;
+        --success-foreground: 0 0% 0%;
+
+        --border: 0 0% 20%;
+        --input: 0 0% 20%;
+        --ring: 0 0% 100%;
+
+        --char-correct: 142 76% 45%;
+        --char-incorrect: 0 62% 50%;
+        --char-current: 212 100% 60%;
+        --char-upcoming: 0 0% 45%;
+
+        --sidebar-background: 0 0% 7%;
+        --sidebar-foreground: 0 0% 100%;
+        --sidebar-primary: 0 0% 100%;
+        --sidebar-primary-foreground: 0 0% 0%;
+        --sidebar-accent: 0 0% 15%;
+        --sidebar-accent-foreground: 0 0% 100%;
+        --sidebar-border: 0 0% 20%;
+        --sidebar-ring: 0 0% 100%;
+
+        --chart-1: 0 0% 90%;
+        --chart-2: 0 0% 70%;
+        --chart-3: 0 0% 50%;
+        --chart-4: 0 0% 30%;
+        --chart-5: 0 0% 20%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground font-sans antialiased;
+    }
+}
+
+@layer utilities {
+    .char-correct {
+        @apply text-[hsl(var(--char-correct))];
+    }
+
+    .char-incorrect {
+        @apply text-[hsl(var(--char-incorrect))] bg-[hsl(var(--char-incorrect)/0.2)];
+    }
+
+    .char-current {
+        @apply border-b-2 border-[hsl(var(--char-current))];
+    }
+
+    .char-upcoming {
+        @apply text-[hsl(var(--char-upcoming))];
+    }
+}

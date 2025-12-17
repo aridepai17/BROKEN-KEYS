@@ -2,7 +2,7 @@ import { ThemeToggle } from "./ThemeToggle";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { LogOut, User } from "lucide-react";
+import { LogOut, User, Trophy } from "lucide-react";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -16,12 +16,28 @@ export function Header() {
 	return (
 		<header className="border-b border-border">
 			<div className="container mx-auto px-4 py-4 flex items-center justify-between">
-				<Link to="/" className="flex items-center gap-2">
-					<span className="font-mono text-2xl font-bold">Broken</span>
-					<span className="font-mono text-2xl font-bold text-muted-foreground">
-						Keys
-					</span>
-				</Link>
+				<div className="flex items-center gap-6">
+					<Link to="/" className="flex items-center gap-2">
+						<span className="font-mono text-2xl font-bold">Broken</span>
+						<span className="font-mono text-2xl font-bold text-muted-foreground">
+							Keys
+						</span>
+					</Link>
+					
+					<nav className="flex items-center gap-4">
+						<Button asChild variant="ghost" size="sm">
+							<Link to="/" className="gap-2">
+								Test
+							</Link>
+						</Button>
+						<Button asChild variant="ghost" size="sm">
+							<Link to="/leaderboard" className="gap-2">
+								<Trophy className="h-4 w-4" />
+								Leaderboard
+							</Link>
+						</Button>
+					</nav>
+				</div>
 
 				<div className="flex items-center gap-2">
 					<ThemeToggle />

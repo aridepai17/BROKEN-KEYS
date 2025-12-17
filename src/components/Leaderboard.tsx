@@ -10,6 +10,7 @@ interface LeaderboardEntry {
 	id: string;
 	user_id: string;
 	wpm: number;
+	raw_wpm: number;
 	accuracy: number;
 	created_at: string;
 	display_name: string | null;
@@ -42,6 +43,7 @@ export function Leaderboard({ mode, wordLimit, timeLimit }: LeaderboardProps) {
           id,
           user_id,
           wpm,
+          raw_wpm,
           accuracy,
           created_at,
           profiles!highscores_user_id_fkey (display_name)
@@ -50,6 +52,9 @@ export function Leaderboard({ mode, wordLimit, timeLimit }: LeaderboardProps) {
 				.eq("mode", mode)
 				.eq("limit_value", limitValue)
 				.order("wpm", { ascending: false })
+				.order("accuracy", { ascending: false })
+				.order("raw_wpm", { ascending: false })
+				.order("created_at", { ascending: true })
 				.limit(10);
 
 			if (globalError) {
@@ -63,6 +68,7 @@ export function Leaderboard({ mode, wordLimit, timeLimit }: LeaderboardProps) {
 						id: entry.id,
 						user_id: entry.user_id,
 						wpm: entry.wpm,
+						raw_wpm: entry.raw_wpm,
 						accuracy: entry.accuracy,
 						created_at: entry.created_at,
 						display_name:
@@ -81,6 +87,7 @@ export function Leaderboard({ mode, wordLimit, timeLimit }: LeaderboardProps) {
             id,
             user_id,
             wpm,
+            raw_wpm,
             accuracy,
             created_at,
             profiles!highscores_user_id_fkey (display_name)
@@ -90,6 +97,9 @@ export function Leaderboard({ mode, wordLimit, timeLimit }: LeaderboardProps) {
 						.eq("limit_value", limitValue)
 						.eq("user_id", user.id)
 						.order("wpm", { ascending: false })
+						.order("accuracy", { ascending: false })
+						.order("raw_wpm", { ascending: false })
+						.order("created_at", { ascending: true })
 						.limit(10);
 
 				if (personalError) {
@@ -103,6 +113,7 @@ export function Leaderboard({ mode, wordLimit, timeLimit }: LeaderboardProps) {
 							id: entry.id,
 							user_id: entry.user_id,
 							wpm: entry.wpm,
+							raw_wpm: entry.raw_wpm,
 							accuracy: entry.accuracy,
 							created_at: entry.created_at,
 							display_name:
@@ -184,6 +195,11 @@ export function Leaderboard({ mode, wordLimit, timeLimit }: LeaderboardProps) {
 							<p className="text-xs text-muted-foreground">
 								{entry.accuracy.toFixed(1)}% acc
 							</p>
+							{entry.raw_wpm !== entry.wpm && (
+								<p className="text-xs text-muted-foreground">
+									{Math.round(entry.raw_wpm)} raw
+								</p>
+							)}
 						</div>
 					</div>
 				))}

@@ -60,6 +60,18 @@ export function Results({ results, onRestart }: ResultsProps) {
 		saveScore();
 	}, [user, results, saved]);
 
+	// Add keyboard listener for Enter key
+	useEffect(() => {
+		const handleKeyPress = (e: KeyboardEvent) => {
+			if (e.key === "Enter") {
+				onRestart();
+			}
+		};
+
+		window.addEventListener("keydown", handleKeyPress);
+		return () => window.removeEventListener("keydown", handleKeyPress);
+	}, [onRestart]);
+
 	return (
 		<div className="w-full max-w-2xl mx-auto">
 			<div className="text-center mb-8">
@@ -123,7 +135,7 @@ export function Results({ results, onRestart }: ResultsProps) {
 			<div className="flex justify-center">
 				<Button onClick={onRestart} size="lg" className="gap-2">
 					<RotateCcw className="h-4 w-4" />
-					Try Again
+					Try Again (Enter)
 				</Button>
 			</div>
 

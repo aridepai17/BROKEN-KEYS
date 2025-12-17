@@ -10,6 +10,8 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@fontsource/geist-mono": "^5.2.7",
+		"@fontsource/geist-sans": "^5.2.5",
 		"@hookform/resolvers": "^5.2.2",
 		"@radix-ui/react-accordion": "^1.2.12",
 		"@radix-ui/react-alert-dialog": "^1.1.15",
@@ -56,6 +58,7 @@
 		"react-router-dom": "^7.10.1",
 		"recharts": "^2.15.4",
 		"sonner": "^2.0.7",
+		"tailwind-animate": "^0.2.10",
 		"tailwind-merge": "^3.4.0",
 		"vaul": "^1.1.2",
 		"zod": "^4.1.13"
@@ -73,6 +76,7 @@
 		"globals": "^16.5.0",
 		"postcss": "^8.4.32",
 		"tailwindcss": "^3.4.17",
+		"tailwindcss-animate": "^1.0.7",
 		"typescript": "~5.9.3",
 		"typescript-eslint": "^8.46.4",
 		"vite": "^7.2.4"

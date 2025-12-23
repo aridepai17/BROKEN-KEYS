@@ -11,6 +11,10 @@
 
 Broken Keys is a specialized typing test application that focuses on the most challenging characters for programmers and data entry professionals: numbers and special characters. Unlike traditional typing tests that emphasize letters, Broken Keys helps you master the characters that often slow down developers and power users.
 
+## Preview
+
+![Preview](https://raw.githubusercontent.com/aridepai17/BROKEN-KEYS/pic/pic.png)
+
 ### Key Features
 
 -   **🎮 Multiple Test Modes**: Choose between word-based or time-based challenges

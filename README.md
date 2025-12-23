@@ -13,7 +13,7 @@ Broken Keys is a specialized typing test application that focuses on the most ch
 
 ## Preview
 
-![Preview](https://raw.githubusercontent.com/aridepai17/BROKEN-KEYS/pic/pic.png)
+![Preview](https://raw.githubusercontent.com/aridepai17/BROKEN-KEYS/master/pic/pic.png)
 
 ### Key Features
 

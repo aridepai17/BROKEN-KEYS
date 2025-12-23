@@ -374,43 +374,45 @@ export function TypingTest({
 						Test your typing speed and accuracy
 					</p>
 
-					{/* Live Stats Bar */}
-					{(isTyping || (mode === "time" && startTime)) && (
-						<div className="inline-flex items-center gap-8 px-8 py-4 bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 shadow-lg">
-							<div className="flex items-center gap-3">
-								<div className="w-3 h-3 rounded-full bg-success animate-pulse" />
-								<div className="text-center">
-									<div className="text-3xl font-bold text-foreground tabular-nums">{liveWpm}</div>
-									<div className="text-xs text-muted-foreground uppercase tracking-wider font-medium">WPM</div>
-								</div>
-							</div>
-
-							<div className="w-px h-8 bg-border/30" />
-
-							<div className="flex items-center gap-3">
-								<div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
-								<div className="text-center">
-									<div className="text-3xl font-bold text-foreground tabular-nums">{liveAccuracy}%</div>
-									<div className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Accuracy</div>
-								</div>
-							</div>
-
-							{mode === "time" && (
-								<>
-									<div className="w-px h-8 bg-border/30" />
-									<div className="flex items-center gap-3">
-										<div className={`w-3 h-3 rounded-full ${timeRemaining <= 10 ? 'bg-destructive animate-pulse' : 'bg-muted-foreground'}`} />
-										<div className="text-center">
-											<div className={`text-3xl font-bold tabular-nums ${timeRemaining <= 10 ? 'text-destructive' : 'text-foreground'}`}>
-												{Math.ceil(timeRemaining)}
-											</div>
-											<div className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Time</div>
-										</div>
+					{/* Live Stats Bar - Always reserve space to prevent layout shift */}
+					<div className="h-20 flex items-center justify-center">
+						{(isTyping || (mode === "time" && startTime)) && (
+							<div className="inline-flex items-center gap-8 px-8 py-4 bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 shadow-lg">
+								<div className="flex items-center gap-3">
+									<div className="w-3 h-3 rounded-full bg-success animate-pulse" />
+									<div className="text-center">
+										<div className="text-3xl font-bold text-foreground tabular-nums">{liveWpm}</div>
+										<div className="text-xs text-muted-foreground uppercase tracking-wider font-medium">WPM</div>
 									</div>
-								</>
-							)}
-						</div>
-					)}
+								</div>
+
+								<div className="w-px h-8 bg-border/30" />
+
+								<div className="flex items-center gap-3">
+									<div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
+									<div className="text-center">
+										<div className="text-3xl font-bold text-foreground tabular-nums">{liveAccuracy}%</div>
+										<div className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Accuracy</div>
+									</div>
+								</div>
+
+								{mode === "time" && (
+									<>
+										<div className="w-px h-8 bg-border/30" />
+										<div className="flex items-center gap-3">
+											<div className={`w-3 h-3 rounded-full ${timeRemaining <= 10 ? 'bg-destructive animate-pulse' : 'bg-muted-foreground'}`} />
+											<div className="text-center">
+												<div className={`text-3xl font-bold tabular-nums ${timeRemaining <= 10 ? 'text-destructive' : 'text-foreground'}`}>
+													{Math.ceil(timeRemaining)}
+												</div>
+												<div className="text-xs text-muted-foreground uppercase tracking-wider font-medium">Time</div>
+											</div>
+										</div>
+									</>
+								)}
+							</div>
+						)}
+					</div>
 				</div>
 
 				{/* Main Typing Area */}
